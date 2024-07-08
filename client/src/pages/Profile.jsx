@@ -7,6 +7,7 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import ClipLoader from "react-spinners/ClipLoader";
+import { Link } from "react-router-dom";
 import { app } from "../firebase";
 import {
   deleteUserFailure,
@@ -23,7 +24,6 @@ import { useDispatch } from "react-redux";
 
 export default function Profile() {
   const dispatch = useDispatch();
-  const [passwordCopy, setPasswordCopy] = useState(null);
   const fileRef = useRef(null);
   const { currentUser, loading, error } = useSelector((state) => state.user);
   const [file, setFile] = useState(undefined);
@@ -191,6 +191,13 @@ export default function Profile() {
         >
           {loading ? <ClipLoader /> : "Update Profile"}
         </button>
+        {/* creating a new site link */}
+        <Link
+          className="bg-lime-700 p-3 text-white rounded-lg uppercase text-center hover:opacity-85"
+          to={"/create-listing"}
+        >
+          Create site
+        </Link>
       </form>
       <div className="flex justify-between mt-5">
         <span
