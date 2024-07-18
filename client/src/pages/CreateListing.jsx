@@ -31,6 +31,7 @@ export default function CreateListing() {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  console.log(formData);
   const handleImageSubmit = (e) => {
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
       setUploading(true);
@@ -53,9 +54,6 @@ export default function CreateListing() {
           setImageUploadError("Image upload failed (2 mb max per image)");
           setUploading(false);
         });
-    } else if (files.length === 0) {
-      setImageUploadError("You have to upload atleast 1 image");
-      setUploading(false);
     } else {
       setImageUploadError("You can only upload 6 images per listing");
       setUploading(false);
