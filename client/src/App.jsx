@@ -21,7 +21,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
-          <Route path="/create-listing/:id" element={<CreateListing />} />
+          <Route path="/create-listing" element={<CreateListing />} />
           <Route
             path="/update-listing/:listingId"
             element={<UpdateListing />}
